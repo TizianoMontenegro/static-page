@@ -1,0 +1,147 @@
+:root{
+    --color1: #222831;
+    --color2: #393E46;
+    --color3: #EEEEEE;
+    --color4: #00d6e1;
+    --red: #f00;
+}
+body{
+    margin: 0;
+    color: var(--color3);
+    font-family: monospace;
+}
+#dad{
+    display: flex;
+}
+
+/* HEADER */
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color1);
+    width: 50px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000000;
+    animation: blur .7s;
+}
+.link-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+}
+.link{
+    text-decoration: none;
+    width: min-content;
+    font-size: 22px;
+    color: #eee;
+}
+.social-link-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+.social-link-container i{
+
+    color: var(--color4);
+}
+
+
+
+.container{
+    background: linear-gradient(90deg, var(--color2), var(--color4));
+    width: calc(100% - 50px);
+    position: relative;
+    padding: 0 30px;
+    top: 0;
+    left: 0;
+    margin-left: 50px;
+    animation: blur1 .7s;
+}
+
+/* typing effect */
+.home h1{
+    margin: 0;
+    padding: 20px 0;
+}
+.typing-effect{
+    font-family: monospace;
+    display: block;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 28ch;
+    text-shadow: -20px 10px 3px var(--color1);
+
+    /*animation: typing 2s steps(28) .7s backwards, blink .5s infinite step-end alternate;*/
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from {width: 0}
+}
+@keyframes blink {
+    50% {border-color: transparent}
+}
+
+
+/* MAIN */
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+}
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media screen(max-width: 768px){
+    grid-template-columns: 1fr;
+
+    }
+}
+.main-text{
+    display: flex;
+    align-items: center;
+    text-shadow:-20px 15px 3px var(--color1);
+    font-size: 20px;
+}
+.me{
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: left;
+    animation: blur 3s;
+    border-bottom: 3px solid var(--red);
+    object-fit: cover;
+    object-position: top;
+    filter: drop-shadow(-10px 5px 10px var(--red));
+    z-index: 100;
+}
+
+@keyframes blur {
+    from {
+        filter: blur(5px) drop-shadow(0 0 0 var(--red)) brightness(226%);
+        transform: translateX(-100%);
+    }
+    to {
+        filter: blur(0px) drop-shadow(-10px 5px 10px var(--red));
+    }
+}
+@keyframes blur1 {
+    from {
+        filter: blur(50px) drop-shadow(0 0 10px var(--red)) brightness(226%);
+        transform: translateX(100%);
+    }
+    to {
+        filter: blur(0px) drop-shadow(-10px 5px 10px var(--red));
+    }
+}
